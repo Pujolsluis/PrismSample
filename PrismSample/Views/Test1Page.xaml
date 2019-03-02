@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="PrismSample.Views.Test1Page"
+             xmlns:prismbehaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Padding="16">
+            <Label Text="Hello Page One!"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"/>
+            <Entry Placeholder="Username"
+                   Text="{Binding User.Username}"
+                   HorizontalOptions="FillAndExpand"/>
+            <Entry Placeholder="Password"
+                   Text="{Binding User.Password}"
+                   IsPassword="true"
+                   HorizontalOptions="FillAndExpand">
+                <Entry.Behaviors>
+                     <prismbehaviors:EventToCommandBehavior EventName="Completed" 
+                                                            Command="{Binding OnLoginCommand}" />
+                 </Entry.Behaviors>
+            </Entry>
+            <Button Text="Next"
+                    Command="{Binding OnLoginCommand}"
+                    Margin="32,16"
+                    HorizontalOptions="FillAndExpand"
+                    BackgroundColor="Black"
+                    TextColor="White"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

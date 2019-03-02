@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:PrismSample" 
+             x:Class="PrismSample.Views.MainPage"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             mvvm:ViewModelLocator.AutowireViewModel="True"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="Welcome to Xamarin.Forms!" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center"
+               Margin="24"/>
+        <Switch IsToggled="{Binding EnableNavigation}"/>
+        <Button Text="Next"
+                Command="{Binding OnNextCommand}"
+                Margin="32,16"/>
+    </StackLayout>
+</ContentPage>
